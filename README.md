@@ -10,7 +10,7 @@ If all's well, you'll get a message confirming that the TTS succeeded and the WA
 
 The sample extensions.conf in this repository shows how to call the TTS service.  The text to speak and language are mandatory, gender optional and only a request - if we only have a voice for the language required of a different gender to that requested, we'll use the available voice.
 
-Languages supported are:
+Languages supported are:  
 ca-ES  
 da-DK  
 de-DE  
