@@ -1,0 +1,9 @@
+<grammar version="1.0" xml:lang="en-GB" root="root" xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="root">
+    <one-of>
+      <item>William Shakespeare</item>
+      <item>Jimi Hendrix</item>
+    </one-of>
+  </rule>
+</grammar>
+
