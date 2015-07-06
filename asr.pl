@@ -3,6 +3,7 @@ use File::Temp qw/tempfile/;
 use File::Slurp;
 use JSON;
 use LWP::UserAgent;
+use LWP::UserAgent::DNS::Hosts;
 use URI::Escape;
 use Encode;
 use Data::Dumper;
@@ -10,8 +11,35 @@ use strict;
 use utf8;
 $|=1;
 
-# Put your SpeechAAS key here:
+# Either put your SpeechAAS key here or in /etc/speechaas.conf with a line reading 'key <key>'
 my $key = "";
+
+# Optionally set your continent here (one of na, sa, af, eu, as, au) - this can go in /etc/speechaas.conf as well
+my $region = "";
+
+# Get config from config file
+open(my $fh, "</etc/speechaas.conf");
+if ($fh) {
+  while (<$fh>) {
+    if ($_ =~ /key\s+([a-zA-Z0-9]+)/) {
+      $key = $1;
+    }
+    if ($_ =~ /region\s+(na|sa|af|eu|as|au)/) {
+      $region = $1;
+    }
+  }
+  close $fh;
+}
+
+if ($key eq "") {
+  print STDERR "No key set\n";
+  die;
+}
+
+if ($region ne "") {
+  my $host = $region . ".api.speechaas.com";
+  LWP::UserAgent::DNS::Hosts->register_hosts("api.speechaas.com" => $host);
+}
 
 my $uri = "https://api.speechaas.com:443/asr";
 
