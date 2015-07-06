@@ -6,7 +6,7 @@ Basic setup
 ===========
 
 Create a file, /etc/speechaas.conf, containing two lines:  
-key <key>  
+key <<key>>  
 region <region>  
 where <key> is your API key, found when you log in to http://speechaas.com  
 and <region> is your continent - one of na, sa, eu, af, as, au  
