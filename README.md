@@ -6,10 +6,10 @@ Basic setup
 ===========
 
 Create a file, /etc/speechaas.conf, containing two lines:  
-key <<key>>  
-region <region>  
-where <key> is your API key, found when you log in to http://speechaas.com  
-and <region> is your continent - one of na, sa, eu, af, as, au  
+key {key}  
+region {region}  
+where {key} is your API key, found when you log in to http://speechaas.com  
+and {region} is your continent - one of na, sa, eu, af, as, au  
 
 We have geographically redundant insfrastructre, with PoPs on four continents, and selecting
 your region correctly will allow your API calls to be routed to the nearest server - thus
