@@ -28,10 +28,15 @@ As well as speaking text, the TTS engine can speak the contents of a file.  In t
 
 The TTS engine will speak either plain text or SSML.
 
+We also provide a stand-alone executable, tts, which is a bundle of the Perl interpreter, libraries and the script.  This can be invoked for testing with:  
+`./tts "Hello" en-GB male debug`  
+
 ASR
 ===
 
-To install, download asr.pl and install in /var/lib/asterisk/agi-bin, and copy you API key into the script in the same way as for the TTS script above.
+To install, download asr.pl and install in /var/lib/asterisk/agi-bin, and configure /etc/speechaas.conf in the same way as above.
+
+Alternatively, there is again a stand-alone executable, build in the same way, called asr.
 
 extensions-asr.conf provides a simple test of the TTS and ASR services.  ASR requests require a grammar, and there's a simple grammar use by this test in test.grxml
 
